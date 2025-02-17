@@ -1,109 +1,35 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <title>QuimiLearn - Descubre la magia de la química</title>
-    <link rel="stylesheet" href="EstiloCss/styles.css">
 </head>
-<body>
+
+<body >
+
+    <!-- Header -->
     <header>
-        <div class="menu">
-            <p class="logo">QuimiLearn</p>
-            <nav>
-                <a href="#inicio">Inicio</a>
-                <a href="#conceptos">Conceptos</a>
-                <a href="#tabla-periodica">Tabla Periódica</a>
-                <a href="#experimentos">Experimentos</a>
-            </nav>
-            
-        </div>
+        <div id="header"></div>
     </header>
 
-    <section class="slogan">
-        <div>
-            <h1>Donde los elementos del conocimiento se combinan</h1>
-            <p>Explora los elementos, comprende las reacciones y descubre los misterios de la materia.</p>
-            <a href="#" class="btn-comienza-explorar">Comienza a Explorar</a>
-        </div>
-    </section>
+    <!-- Home -->
+    <div id="home" class="hidden"></div>
 
-
-    <section class="features">
-        <div class="container">
-            <h2>Explora La Química</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="icon-experimento">
-                       <img src="" alt="icono">
-                    </div>
-                    <h3>Experimentos</h3>
-                    <p>Realiza experimentos virtuales y observa reacciones químicas en acción.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="icon-tabla-periodica">
-                        <img src="" alt="icono">
-                    </div>
-                    <h3>Tabla Periódica</h3>
-                    <p>Tabla periódica interactiva con información detallada de cada elemento.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="icon-tema">
-                        <img src="" alt="icono-quimica">
-                    </div>
-                    <h3>Química Basica</h3>
-                    <p>Sumérgete en el mundo de la quimica.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
+    <!-- Footer -->
     <footer class="footer">
-        <div>
-            <div class="footer-grid">
-                <div>
-                    <h3>QuimiLearn</h3>
-                    <p>Donde los elementos del conocimiento se combinan.</p>
-                </div>
-
-                <div>
-                    <h3>Enlaces Rápidos</h3>
-                    <ul>
-                        <li><a href="#">Inicio</a></li>
-                        <li><a href="#">Elementos</a></li>
-                        <li><a href="#">Reacciones</a></li>
-                        <li><a href="#">Acerca de</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h3>Recursos</h3>
-                    <ul>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Tutoriales</a></li>
-                        <li><a href="#">Glosario</a></li>
-                        <li><a href="#">Preguntas Frecuentes</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h3>Conecta</h3>
-                    <ul>
-                        <li><a href="#">Contáctanos</a></li>
-                        <li><a href="#">Twitter</a></li>
-                        <li><a href="#">Facebook</a></li>
-                        <li><a href="#">Instagram</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2025 QuimiLearn. Todos los derechos reservados.</p>
-            </div>
-        </div>
+        <div id="footer" class="footer"></div>
     </footer>
+
+    <div id="loader-container" class="loader-container">
+        <span class="loader"></span>
+    </div>
+
+    <script type="module" src="./main.js"></script>
+
 </body>
+
 </html>
