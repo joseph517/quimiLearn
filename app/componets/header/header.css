@@ -1,0 +1,29 @@
+header {
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+    width: 100%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+    position: static;
+    text-decoration: none;    
+    align-items: center;
+    width: 100%;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    margin: auto;
+}
+
+nav, nav a {display: flex;
+gap: 10px;
+text-decoration: none;
+color: white;
+font-weight: bold;
+}
+
+.logo {
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: white;
+ } 
