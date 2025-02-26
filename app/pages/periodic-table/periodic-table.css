@@ -1,0 +1,9 @@
+.periodic-table{
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+
+}
+.periodic-table-title{
+    text-align: center;
+    color: #fff;
+    font: 1em sans-serif;
+}

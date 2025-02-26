@@ -1,45 +1,64 @@
-// imports
+// Imports
 
-function loadHtmlComponents() {
-    function loadComponent(url, selector) {
-        return new Promise((resolve) => {
-            $(selector).load(url, () => resolve());
+async function loadComponent(url, selector) {
+    return new Promise((resolve, ) => {
+        $(selector).load(url, () => {
+            resolve();
         });
-    }
-    setTimeout(() => {
-        Promise.all([
-            loadComponent('./app/componets/header/header.html', '#header'),
-            loadComponent('./app/componets/footer/footer.html', '#footer'),
-            loadComponent('./app/pages/home/home.html', '#home')
-        ]).then(() => {
+    })
+}
+
+async function loadHtmlComponents() {
+    return new Promise(async resolve => {
+        try {
+            await Promise.all([
+                loadComponent('./app/components/header/header.html', '#header'),
+                loadComponent('./app/pages/home/home.html', '#home'),
+                loadComponent('./app/pages/periodic-table/periodic-table.html', '#periodic-table'),
+                loadComponent('./app/components/footer/footer.html', '#footer')
+            ]);
+            await Promise.all([
+                loadComponent('./app/components/table/table.html', '#view-periodic-table'),
+                // loadComponent('./app/components/element-list/element-list.html', '#view-elements-list')
+            ]);
             console.log('All components loaded successfully');
             hiddenLoader();
-        }).catch((error) => {
-            console.error(error);
-        });
-    }, 1000);
+            resolve();
+        } catch (error) {
+            console.error('Error loading components:', error);
+            resolve();
+        }
+    });
 }
 
 // Paths
 const routes = [{
-    path: '/', id: 'home'
-}, ]
+        path: '/',
+        id: 'home'
+    },
+    {
+        path: '#/periodic-table/',
+        id: 'periodic-table'
+    },
+    {
+        path: '#/periodic-table/view-periodic-table',
+        id: 'view-periodic-table',
+        parent: 'periodic-table'
+    },
+]
 
-const contentIds = ['home'];
+const contentIds = ['home', 'periodic-table', 'view-periodic-table'];
 const defaultRoute = '/';
 
 function navigateTo(hash) {
-    const route = routes.find((routeFound) => routeFound.path === hash);
-    const idRoute = route.id;
-    handlesContent(idRoute);
-    if (route) {
-        window.history.pushState({},
-            route.path,
-            window.location.origin + route.path
-        );
-    } else {
-        navigateTo("#/error")
+    const route = routes.find(routeFound => routeFound.path === hash);
+    if (!route) {
+        navigateTo("#/error");
+        return;
     }
+
+    handlesContent(route.id, route.parent);
+    window.history.pushState({}, route.path, window.location.origin + route.path);
 }
 
 // Handles the event fired when the user navigates the session history.
@@ -47,27 +66,35 @@ function navigateTo(hash) {
 // In this case, we just navigate to the current url.
 window.onpopstate = () => {
     const currentHash = window.location.hash;
+    console.log('currentHash', currentHash);
+
     navigateTo(currentHash || defaultRoute);
 }
-navigateTo(window.location.hash || defaultRoute);
 
-/**
- * Handles the visibility of the content based on the given elementId.
- * @param {string} elementId - The id of the element to be shown.
- * @description
- * It iterates over the contentIds array and adds the 'hidden' class to all of them.
- * Then, it removes the 'hidden' class from the element with the given id.
- */
-function handlesContent(elementId) {
-    contentIds.forEach((element) => {
-        document.getElementById(element).classList.add('hidden');
-    })
-    document.getElementById(elementId).classList.remove('hidden');
+(async () => {
+    await loadHtmlComponents();
+    navigateTo(window.location.hash || defaultRoute);
+})();
+
+function handlesContent(elementId, parent) {
+
+    contentIds.forEach(element => {
+        const elementDom = document.getElementById(element);
+        if (!elementDom) return;
+        elementDom.classList.add('hidden');
+    });
+
+    if (parent) {
+        const parentDom = document.getElementById(parent);
+        if (!parentDom) return;
+        parentDom.classList.remove('hidden');
+    }
+
+    const elementDom = document.getElementById(elementId);
+    if (!elementDom) return console.error('Element not found', elementId);
+    elementDom.classList.remove('hidden');
 }
 
 function hiddenLoader() {
-    console.log('hidden loader');
     document.getElementById('loader-container').classList.add('hidden');
 }
-
-loadHtmlComponents();
