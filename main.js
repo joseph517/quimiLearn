@@ -18,6 +18,7 @@ async function loadHtmlComponents() {
                 loadComponent('./app/pages/periodic-table/periodic-table.html', '#periodic-table'),
                 loadComponent('./app/components/footer/footer.html', '#footer')
             ]);
+            await new Promise(resolve => setTimeout(resolve, 1000));
             await Promise.all([
                 loadComponent('./app/components/table/table.html', '#view-periodic-table'),
                 loadComponent('./app/components/element-list/element-list.html', '#view-elements-list')
@@ -53,7 +54,7 @@ const routes = [{
     }
 ]
 
-const contentIds = ['home', 'periodic-table', 'view-periodic-table', 'view-elements-list'];
+const contentIds = ['home', 'periodic-table', 'view-periodic-table', 'view-elements-list', 'initial-periodic-table' ];
 const defaultRoute = '/';
 
 function navigateTo(hash) {
@@ -85,6 +86,8 @@ window.onpopstate = () => {
 
 function handlesContent(elementId, parent) {
 
+    console.log('elementId', elementId);
+
     contentIds.forEach(element => {
         const elementDom = document.getElementById(element);
         if (!elementDom) return;
@@ -95,6 +98,9 @@ function handlesContent(elementId, parent) {
         const parentDom = document.getElementById(parent);
         if (!parentDom) return;
         parentDom.classList.remove('hidden');
+    }
+    if(elementId === 'periodic-table') {
+        document.getElementById('initial-periodic-table').classList.remove('hidden');
     }
 
     const elementDom = document.getElementById(elementId);
