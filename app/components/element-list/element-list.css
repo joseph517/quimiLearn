@@ -1,0 +1,111 @@
+.filter-container {
+    
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.filter-input {
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    width: 400px;
+    height: 40px;
+    text-align: center;
+    border: 2px solid var(--primary-purple);
+    outline: none;
+}
+
+.filter-input:focus {
+    transition: border-color 0.3s ease-in-out;
+    border: 2px solid var(--primary-blue);
+}
+
+
+.element-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 25px;
+    box-shadow: 2px 2px 5px var(--primary-purple);
+    border-radius: 25px;
+    margin: 35px 10px;
+}
+
+.main-properties {
+    margin-top: 25px;
+    border-radius: 10px;
+}
+
+.main-properties, .detailed-properties {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
+
+.detailed-properties {
+}
+
+.property-table {
+    margin: 20px;
+}
+td {
+    padding: 5px;
+}
+
+.property-group {
+    margin-bottom: 1.5rem;
+}
+
+.property-label {
+    display: block;
+    font-weight: bold;
+    color: #666;
+}
+
+.property-value {
+    font-size: 1.2em;
+    color: #333;
+}
+
+.table-label {
+    font-weight: 600;
+    padding-right: 1.5rem;
+    color: #444;
+}
+
+.table-value {
+    color: rgb(128 204 255 / var(--tw-text-opacity, 1));
+}
+
+.element-name-symbol {
+    font-size: 90px;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.element-name {
+    font-style: italic;
+    color: #2e4053;
+}
+
+@media screen and (min-width: 640px) {
+    .element-container {
+        flex-direction: row;
+        align-items: normal;
+    }
+
+    .main-properties, .detailed-properties {
+        width: 40%;
+        margin-top: 0;
+    }
+    
+}
