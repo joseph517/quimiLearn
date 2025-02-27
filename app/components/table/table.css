@@ -515,13 +515,21 @@
       color: #000;
       text-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
     }
+
     .legend {
+      display: none;
+    }
+    
+  }
+  @media (min-width: 800px) {
+    .legend {
+      display: block;
       position: absolute;
       top: 1%;
       left: 34%;
       padding: 0px;
       font-size: 8px;
-      width: 230px;
+      width: 300px;
   }
   .legend .list-2 {
       margin-left: 10px;
@@ -530,11 +538,9 @@
   }
   .legend .list-3 {
       margin-left: 0px;
-      width: 107px;
+      width: 160px;
       padding-left: 0;
   }
-  }
-  @media (min-width: 800px) {
     .periodic {
       height: 540px;
     }
