@@ -1,4 +1,5 @@
 // Imports
+import loadElementList from './app/components/element-list/element-list.js'
 
 async function loadComponent(url, selector) {
     return new Promise((resolve, ) => {
@@ -19,7 +20,7 @@ async function loadHtmlComponents() {
             ]);
             await Promise.all([
                 loadComponent('./app/components/table/table.html', '#view-periodic-table'),
-                // loadComponent('./app/components/element-list/element-list.html', '#view-elements-list')
+                loadComponent('./app/components/element-list/element-list.html', '#view-elements-list')
             ]);
             console.log('All components loaded successfully');
             hiddenLoader();
@@ -45,9 +46,14 @@ const routes = [{
         id: 'view-periodic-table',
         parent: 'periodic-table'
     },
+    {
+        path: '#/periodic-table/view-elements-list',
+        id: 'view-elements-list',
+        parent: 'periodic-table'
+    }
 ]
 
-const contentIds = ['home', 'periodic-table', 'view-periodic-table'];
+const contentIds = ['home', 'periodic-table', 'view-periodic-table', 'view-elements-list'];
 const defaultRoute = '/';
 
 function navigateTo(hash) {
@@ -73,6 +79,7 @@ window.onpopstate = () => {
 
 (async () => {
     await loadHtmlComponents();
+    loadElementList();
     navigateTo(window.location.hash || defaultRoute);
 })();
 
