@@ -40,9 +40,8 @@ footer {
 
 /* Loader spinner style */
 .loader {
-  border: solid rebeccapurple;
   width: 100%;
-  height: 100vh;
+  height: 74vh;
   display: block;
   margin: auto;
   position: relative;
