@@ -1,5 +1,6 @@
 // Imports
 import loadElementList from './app/components/element-list/element-list.js'
+import header from './app/components/header/header.js'
 
 async function loadComponent(url, selector) {
     return new Promise((resolve, ) => {
@@ -81,6 +82,7 @@ window.onpopstate = () => {
 (async () => {
     await loadHtmlComponents();
     loadElementList();
+    header();
     navigateTo(window.location.hash || defaultRoute);
 })();
 

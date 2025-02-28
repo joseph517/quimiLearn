@@ -1,29 +1,118 @@
 header {
-    background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
-    width: 100%;
+  background: linear-gradient(
+    135deg,
+    var(--primary-blue),
+    var(--primary-purple)
+  );
+  width: 100%;
 }
 
 .header {
-    display: flex;
-    justify-content: space-between;
-    padding: 5px 10px;
-    position: static;
-    text-decoration: none;    
-    align-items: center;
-    width: 100%;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-    margin: auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px;
+  position: static;
+  text-decoration: none;
+  align-items: center;
+  width: 100%;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  margin: auto;
 }
 
-nav, nav a {display: flex;
-gap: 10px;
-text-decoration: none;
-color: white;
-font-weight: bold;
+nav,
+nav a {
+  display: flex;
+  gap: 10px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
 }
 
 .logo {
-    font-size: 1.7rem;
-    font-weight: bold;
-    color: white;
- } 
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: white;
+}
+
+.container-header {
+  display: flex;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Estilos del botón hamburguesa */
+.hamburger-btn {
+  display: none; /* Oculto en desktop */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0 10px;
+  z-index: 1000;
+}
+
+.hamburger-btn span {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background: #333;
+  margin: 5px 0;
+  transition: 0.4s;
+}
+
+/* Cuando el menú está activo */
+.hamburger-btn.active span:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-btn.active span:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Estilos del menú */
+.nav-menu {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  color: #333;
+  padding: 10px 20px;
+  display: block;
+  font-family: Arial, sans-serif;
+}
+
+/* Estilos para móvil */
+@media screen and (max-width: 768px) {
+  .hamburger-btn {
+    display: block; /* Mostrar en móvil */
+    top: 20px;
+    right: 20px;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 78px;
+    left: -100%;
+    width: 250px;
+    background: #fff;
+    flex-direction: column;
+    padding: 15px 15px;
+    transition: 0.3s;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-menu.active {
+    left: 0;
+  }
+
+  .nav-menu li a {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+  }
+}
