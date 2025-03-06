@@ -29,6 +29,10 @@ body {
 .main {
   flex: 1;
 }
+.home {
+    /* height: 100%; */
+    background-color: #EFF6FF;
+}
 
 footer {
   padding: 20px;
