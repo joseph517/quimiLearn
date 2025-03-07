@@ -1,9 +1,17 @@
 .p-12{
     padding: 12px;
 }
+
 .about{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: #EFF6FF;
     padding: 48px 24px;
+}
+
+.about-body{
+    max-width: 1152px;
 }
 
 .about-content{
@@ -129,6 +137,8 @@
     padding: 32px;
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
     text-align: center;
+    width: 100%;
+    max-width: 1152px;
 }
 
 .content-banner-title {
