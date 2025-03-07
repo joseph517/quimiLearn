@@ -102,6 +102,12 @@ nav a {
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
   }
 
+  .nav-link {
+    background-image: linear-gradient(to right, #2563eb, #059669);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
   .nav-menu.active {
     left: 0;
     z-index: 999;
