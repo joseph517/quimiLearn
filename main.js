@@ -17,6 +17,8 @@ async function loadHtmlComponents() {
                 loadComponent('./app/components/header/header.html', '#header'),
                 loadComponent('./app/pages/home/home.html', '#home'),
                 loadComponent('./app/pages/periodic-table/periodic-table.html', '#periodic-table'),
+                loadComponent('./app/pages/about/about.html', '#about'),
+                loadComponent('./app/pages/concepts/concepts.html', '#concepts'),
                 loadComponent('./app/components/footer/footer.html', '#footer')
             ]);
             await new Promise(resolve => setTimeout(resolve, 1000));
@@ -52,10 +54,26 @@ const routes = [{
         path: '#/periodic-table/view-elements-list',
         id: 'view-elements-list',
         parent: 'periodic-table'
+    },
+    {
+        path: '#/about/',
+        id: 'about'
+    },
+    {
+        path: '#/concepts/',
+        id: 'concepts'
     }
 ]
 
-const contentIds = ['home', 'periodic-table', 'view-periodic-table', 'view-elements-list', 'initial-periodic-table' ];
+const contentIds = [
+    'home',
+    'periodic-table',
+    'view-periodic-table',
+    'view-elements-list',
+    'initial-periodic-table',
+    'about',
+    'concepts',
+];
 const defaultRoute = '/';
 
 function navigateTo(hash) {
@@ -112,4 +130,8 @@ function handlesContent(elementId, parent) {
 
 function hiddenLoader() {
     document.getElementById('loader-container').classList.add('hidden');
+    document.getElementById('header-container').classList.remove('hidden');
+    document.getElementById('main-container').classList.remove('hidden');
+    document.getElementById('footer-container').classList.remove('hidden');
+
 }
