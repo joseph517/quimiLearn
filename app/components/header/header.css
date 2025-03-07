@@ -1,9 +1,5 @@
 header {
-  background: linear-gradient(
-    135deg,
-    var(--primary-blue),
-    var(--primary-purple)
-  );
+  background-image: linear-gradient(to right, #2563eb, #059669);
   width: 100%;
 }
 
@@ -81,7 +77,6 @@ nav a {
 
 .nav-menu li a {
   text-decoration: none;
-  color: #333;
   padding: 10px 20px;
   display: block;
   font-family: Arial, sans-serif;
@@ -109,6 +104,7 @@ nav a {
 
   .nav-menu.active {
     left: 0;
+    z-index: 999;
   }
 
   .nav-menu li a {

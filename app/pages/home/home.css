@@ -1,5 +1,5 @@
 .slogan {
-    background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+    background-image: linear-gradient(to right, #2563eb, #059669);
     color: white;
     text-align: center;
     padding: 6rem 1rem;
