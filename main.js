@@ -18,7 +18,7 @@ async function loadHtmlComponents() {
                 loadComponent('./app/pages/home/home.html', '#home'),
                 loadComponent('./app/pages/periodic-table/periodic-table.html', '#periodic-table'),
                 loadComponent('./app/pages/about/about.html', '#about'),
-                loadComponent('./app/pages/concepts/concepts.html', '#concepts'),
+                loadComponent('./app/pages/experiments/experiments.html', '#experiments'),
                 loadComponent('./app/components/footer/footer.html', '#footer')
             ]);
             await new Promise(resolve => setTimeout(resolve, 1000));
@@ -60,8 +60,8 @@ const routes = [{
         id: 'about'
     },
     {
-        path: '#/concepts/',
-        id: 'concepts'
+        path: '#/experiments/',
+        id: 'experiments'
     }
 ]
 
@@ -72,7 +72,7 @@ const contentIds = [
     'view-elements-list',
     'initial-periodic-table',
     'about',
-    'concepts',
+    'experiments',
 ];
 const defaultRoute = '/';
 
