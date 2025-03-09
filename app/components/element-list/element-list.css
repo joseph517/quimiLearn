@@ -109,3 +109,21 @@ td {
     }
     
 }
+
+.filter-container {
+    animation-name: animation-element-list;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+/* keyframes */
+@keyframes animation-element-list {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+    
+}

@@ -5,11 +5,13 @@
 }
 
 .footer-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    justify-items: center;
-    gap: 2rem;
-    margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footer-text {
+    flex: 1;
+    margin-right: 2rem;
 }
 
 .footer h3 {

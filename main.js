@@ -1,6 +1,7 @@
 // Imports
 import loadElementList from './app/components/element-list/element-list.js'
 import header from './app/components/header/header.js'
+import experiments from './app/pages/experiments/experiments.js'
 
 async function loadComponent(url, selector) {
     return new Promise((resolve, ) => {
@@ -17,6 +18,8 @@ async function loadHtmlComponents() {
                 loadComponent('./app/components/header/header.html', '#header'),
                 loadComponent('./app/pages/home/home.html', '#home'),
                 loadComponent('./app/pages/periodic-table/periodic-table.html', '#periodic-table'),
+                loadComponent('./app/pages/about/about.html', '#about'),
+                loadComponent('./app/pages/experiments/experiments.html', '#experiments'),
                 loadComponent('./app/components/footer/footer.html', '#footer')
             ]);
             await new Promise(resolve => setTimeout(resolve, 1000));
@@ -52,10 +55,26 @@ const routes = [{
         path: '#/periodic-table/view-elements-list',
         id: 'view-elements-list',
         parent: 'periodic-table'
+    },
+    {
+        path: '#/about/',
+        id: 'about'
+    },
+    {
+        path: '#/experiments/',
+        id: 'experiments'
     }
 ]
 
-const contentIds = ['home', 'periodic-table', 'view-periodic-table', 'view-elements-list', 'initial-periodic-table' ];
+const contentIds = [
+    'home',
+    'periodic-table',
+    'view-periodic-table',
+    'view-elements-list',
+    'initial-periodic-table',
+    'about',
+    'experiments',
+];
 const defaultRoute = '/';
 
 function navigateTo(hash) {
@@ -83,6 +102,7 @@ window.onpopstate = () => {
     await loadHtmlComponents();
     loadElementList();
     header();
+    experiments();
     navigateTo(window.location.hash || defaultRoute);
 })();
 
@@ -112,4 +132,8 @@ function handlesContent(elementId, parent) {
 
 function hiddenLoader() {
     document.getElementById('loader-container').classList.add('hidden');
+    document.getElementById('header-container').classList.remove('hidden');
+    document.getElementById('main-container').classList.remove('hidden');
+    document.getElementById('footer-container').classList.remove('hidden');
+
 }

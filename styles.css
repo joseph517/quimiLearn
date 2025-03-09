@@ -15,6 +15,27 @@
     box-sizing: border-box;
 }
 
+.mb-4 {
+    margin-bottom: 4px;
+}
+
+.mb-8 {
+    margin-bottom: 8px;
+}
+
+.mb-16 {
+    margin-bottom: 16px;
+}
+.pd-24 {
+    padding: 24px;
+}
+.hg-16 {
+    height: 16px;
+}
+.wd-16 {
+    width: 16px;
+}
+
 .hidden {
     display: none !important;
 }
@@ -28,6 +49,10 @@ body {
 }
 .main {
   flex: 1;
+}
+.home {
+    height: 100%;
+    background-color: #EFF6FF;
 }
 
 footer {

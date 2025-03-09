@@ -1,0 +1,78 @@
+<head>
+  <link rel="stylesheet" href="./app/pages/experiments/experiments.css">
+</head>
+
+<div class="experiments">
+  <h2 class="title title-experiments">Laboratorio de Expermientos Quimicos Virtuales</h2>
+  <div class="container-experiments">
+    <!-- Formulario de nuevo experimento -->
+    <div class="experiment-background pd-24">
+      <h3 class="title mb-16">Nuevo Expermiento</h3>
+      <div class="form-container">
+        <form id="form-experiment">
+          <div class="form-group">
+            <label class="form-label" for="name">Nombre</label>
+            <input class="form-input" type="text" id="name" name="name" placeholder="Ej: Reaccion de neutralizacion">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="description">Descripción</label>
+            <textarea class="form-input" id="description" name="description"
+              placeholder="Breve descripcion del experimento"></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="compounds">Compuestos Quimicos</label>
+            <textarea class="form-input" id="compounds" name="compounds" placeholder="Ej: HCI, NaOH, H2O"></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="process">Procedimento</label>
+            <textarea class="form-input" id="process" name="process"></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="result">Observaciones/Resultados</label>
+            <textarea class="form-input" id="result" name="result"
+              placeholder="Resultados y observaciones del experimento"></textarea>
+          </div>
+          <button id="form-button" class="form-button" type="submit">Guardar Expermiento</button>
+      </div>
+      
+      </form>
+    </div>
+    <!-- Lista de experimentos -->
+    <div class="experiment-list">
+      <h3 class="title mb-16">Lista de Experimentos</h3>
+      <div id="list-container-experiments" class="list-container">
+        <!-- <ul>
+          <li>
+            <div id="experiment-card" class="experiment-card">
+              <div class="experiment-header">
+                <div class="experiment-name-container">
+                  <h3 class="experiment-name">Nombre del Experimento</h3>
+                  <button class="edit-button">Editar</button>
+                  <button class="delete-button">Eliminar</button>
+                </div>
+                <div class="experiment-date-container">
+                  <p class="experiment-date">Fecha: 01/01/2023</p>
+                </div>
+              </div>
+              <div class="experiment-content">
+                <p class="experiment-description">Descripción del Experimento</p>
+                <div class="experiment-compounds-container">
+                  <h3 class="experiment-compounds-title">Compuestos Quimicos</h3>
+                  <p class="experiment-compounds">Compuestos Quimicos: HCI, NaOH, H2O</p>
+                </div>
+                <div class="experiment-process-container">
+                  <h3 class="experiment-process-title">Procedimiento</h3>
+                  <p class="experiment-text">Procedimiento: ...</p>
+                </div>
+                <div class="experiment-result-container">
+                  <h3 class="experiment-result-title">Observaciones</h3>
+                  <p class="experiment-text">Resultados y Observaciones: ...</p>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul> -->
+      </div>
+    </div>
+  </div>
+</div>

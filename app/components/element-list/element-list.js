@@ -80,6 +80,7 @@ export default function loadElementList() {
                         const elementSymbol = element.querySelector('.element-name-symbol').textContent.toLowerCase();
                         if (elementName.startsWith(filterValue) || elementSymbol.startsWith(filterValue)) {
                             element.style.display = '';
+                            element.style.animation = 'animation-element-list 0.5s ease-in-out';
                         } else {
                             element.style.display = 'none';
                         }
