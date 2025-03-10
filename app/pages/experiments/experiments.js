@@ -74,7 +74,12 @@ export default function experiments() {
     // Manejo del formulario
     form.addEventListener('submit', (e) => {
         e.preventDefault();
-        
+        const formData = new FormData(form);
+        const isEmpty = [...formData.entries()].some(([key, value]) => !value.trim());
+        if (isEmpty) return;
+     
+        console.log('Formulario enviado');
+
         const experimentData = {
             name: form.name.value.trim(),
             description: form.description.value.trim(),

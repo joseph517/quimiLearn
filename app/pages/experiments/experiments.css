@@ -67,7 +67,12 @@
 
 .expermient-list {
     overflow-y: auto;
+    height: 690px;
+}
+
+.list-container{
     height: 600px;
+    overflow-y: scroll;
 }
 
 .experiment-header {
