@@ -36,6 +36,8 @@
 
 /* Features Section */
 .card{
+    display: flex;
+    justify-content: center;
     width: 100%;
     text-decoration: none;
     color: inherit;
@@ -95,4 +97,12 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+@media screen and (min-width: 752px) {
+    .card {
+        width: auto;
+
+    }
+
 }
