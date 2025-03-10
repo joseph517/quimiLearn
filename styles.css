@@ -49,6 +49,7 @@ body {
 }
 .main {
   flex: 1;
+  background: #EFF6FF;
 }
 .home {
     height: 100%;

@@ -132,3 +132,63 @@
     }
     
 }
+
+.title-experiments {
+    opacity: 0;
+    animation-name: animation-experiments-title;
+    animation-duration: 0.5s;
+    animation-delay: 0.2s;
+    animation-fill-mode: forwards;
+}
+
+.experiment-form {
+    opacity: 0;
+    animation-name: animation-experiments-form;
+    animation-duration: 0.5s;
+    animation-delay: 0.2s;
+    animation-fill-mode: forwards;
+}
+
+.experiment-list {    
+    opacity: 0;
+    animation-name: animation-experiments-list;
+    animation-duration: 0.5s;
+    animation-delay: 0.2s;
+    animation-fill-mode: forwards;
+}
+
+
+/* keyframes */
+@keyframes animation-experiments-title {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px); 
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes animation-experiments-form {
+    0% {
+        opacity: 0;
+        transform: translateX(-20px); 
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes animation-experiments-list {
+    0% {
+        opacity: 0;
+        transform: translateX(20px); 
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+}
