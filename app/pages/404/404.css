@@ -1,0 +1,102 @@
+.body-game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #f8f9fa, #dee2e6);
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.container-game {
+    max-width: 400px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-game {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.icon-game {
+    font-size: 32px;
+    animation: pulse 1s infinite alternate;
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.title-game {
+    font-size: 32px;
+    font-weight: bold;
+    margin-top: 10px;
+    background-image: linear-gradient(to right, #2563eb, #059669);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.text-game {
+    font-size: 18px;
+    margin-top: 10px;
+    color: #71717a;
+}
+
+.buttons {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn-game {
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.btn-game:hover {
+    opacity: 0.8;
+}
+
+.primary {
+    border: 2px solid #007bff;
+    background-image: linear-gradient(to right, #2563eb, #059669);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.secondary {
+    background-color: #007bff;
+    border: 2px solid #007bff;
+    background-image: linear-gradient(to right, #2563eb, #059669);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.rotate {
+    animation: rotateAnimation 2s linear infinite;
+    display: inline-block;
+  }
+  
+  @keyframes rotateAnimation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }

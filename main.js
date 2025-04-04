@@ -20,18 +20,18 @@ async function loadHtmlComponents() {
                 loadComponent('./app/pages/periodic-table/periodic-table.html', '#periodic-table'),
                 loadComponent('./app/pages/about/about.html', '#about'),
                 loadComponent('./app/pages/experiments/experiments.html', '#experiments'),
-                loadComponent('./app/components/footer/footer.html', '#footer')
+                loadComponent('./app/components/footer/footer.html', '#footer'),
+                loadComponent('./app/pages/404/404.html', '#404')
             ]);
             await new Promise(resolve => setTimeout(resolve, 1000));
             await Promise.all([
                 loadComponent('./app/components/table/table.html', '#view-periodic-table'),
-                loadComponent('./app/components/element-list/element-list.html', '#view-elements-list')
+                loadComponent('./app/components/element-list/element-list.html', '#view-elements-list'),
+                loadComponent('./app/components/game-periodic-table/game-periodic-table.html', '#game-periodic-table')
             ]);
-            console.log('All components loaded successfully');
             hiddenLoader();
             resolve();
         } catch (error) {
-            console.error('Error loading components:', error);
             resolve();
         }
     });
@@ -57,13 +57,23 @@ const routes = [{
         parent: 'periodic-table'
     },
     {
+        path: '#/periodic-table/game-periodic-table',
+        id: 'game-periodic-table',
+        parent: 'periodic-table'
+    },
+    {
         path: '#/about/',
         id: 'about'
     },
     {
         path: '#/experiments/',
         id: 'experiments'
+    },
+    {
+        path: '#/404/',
+        id: '404'
     }
+    
 ]
 
 const contentIds = [
@@ -71,19 +81,20 @@ const contentIds = [
     'periodic-table',
     'view-periodic-table',
     'view-elements-list',
+    'game-periodic-table',
     'initial-periodic-table',
     'about',
     'experiments',
+    '404'
 ];
 const defaultRoute = '/';
 
 function navigateTo(hash) {
     const route = routes.find(routeFound => routeFound.path === hash);
     if (!route) {
-        navigateTo("#/error");
+        navigateTo("#/404/");
         return;
     }
-
     handlesContent(route.id, route.parent);
     window.history.pushState({}, route.path, window.location.origin + route.path);
 }
@@ -93,8 +104,6 @@ function navigateTo(hash) {
 // In this case, we just navigate to the current url.
 window.onpopstate = () => {
     const currentHash = window.location.hash;
-    console.log('currentHash', currentHash);
-
     navigateTo(currentHash || defaultRoute);
 }
 
@@ -107,8 +116,10 @@ window.onpopstate = () => {
 })();
 
 function handlesContent(elementId, parent) {
-
-    console.log('elementId', elementId);
+    if(elementId === '404') {
+        document.getElementById('header').classList.add('hidden');
+        document.getElementById('footer-container').classList.add('hidden');
+    }
 
     contentIds.forEach(element => {
         const elementDom = document.getElementById(element);
@@ -121,6 +132,7 @@ function handlesContent(elementId, parent) {
         if (!parentDom) return;
         parentDom.classList.remove('hidden');
     }
+
     if(elementId === 'periodic-table') {
         document.getElementById('initial-periodic-table').classList.remove('hidden');
     }
@@ -135,5 +147,4 @@ function hiddenLoader() {
     document.getElementById('header-container').classList.remove('hidden');
     document.getElementById('main-container').classList.remove('hidden');
     document.getElementById('footer-container').classList.remove('hidden');
-
 }
