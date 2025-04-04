@@ -27,7 +27,7 @@ async function loadHtmlComponents() {
             await Promise.all([
                 loadComponent('./app/components/table/table.html', '#view-periodic-table'),
                 loadComponent('./app/components/element-list/element-list.html', '#view-elements-list'),
-                loadComponent('./app/components/game-periodic-table/game-periodic-table.html', '#game-periodic-table')
+                // loadComponent('./app/components/game-periodic-table/game-periodic-table.html', '#game-periodic-table')
             ]);
             hiddenLoader();
             resolve();
@@ -56,11 +56,11 @@ const routes = [{
         id: 'view-elements-list',
         parent: 'periodic-table'
     },
-    {
-        path: '#/periodic-table/game-periodic-table',
-        id: 'game-periodic-table',
-        parent: 'periodic-table'
-    },
+    // {
+    //     path: '#/periodic-table/game-periodic-table',
+    //     id: 'game-periodic-table',
+    //     parent: 'periodic-table'
+    // },
     {
         path: '#/about/',
         id: 'about'
@@ -81,7 +81,7 @@ const contentIds = [
     'periodic-table',
     'view-periodic-table',
     'view-elements-list',
-    'game-periodic-table',
+    // 'game-periodic-table',
     'initial-periodic-table',
     'about',
     'experiments',
@@ -119,8 +119,9 @@ function handlesContent(elementId, parent) {
     if(elementId === '404') {
         document.getElementById('header').classList.add('hidden');
         document.getElementById('footer-container').classList.add('hidden');
+        document.getElementById('main-container').classList.add('hidden');
+        return;
     }
-
     contentIds.forEach(element => {
         const elementDom = document.getElementById(element);
         if (!elementDom) return;
