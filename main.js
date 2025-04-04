@@ -128,7 +128,6 @@ function handlesContent(elementId, parent) {
     if(elementId === '404') {
         document.getElementById('header').classList.add('hidden');
         document.getElementById('footer-container').classList.add('hidden');
-        document.getElementById('main-container').classList.add('hidden');
     }
 
     if (parent) {
