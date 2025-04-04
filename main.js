@@ -92,6 +92,7 @@ const defaultRoute = '/';
 function navigateTo(hash) {
     const route = routes.find(routeFound => routeFound.path === hash);
     if (!route) {
+        console.log('Route not found');
         navigateTo("#/404/");
         return;
     }
@@ -112,21 +113,23 @@ window.onpopstate = () => {
     loadElementList();
     header();
     experiments();
+
     navigateTo(window.location.hash || defaultRoute);
 })();
 
 function handlesContent(elementId, parent) {
-    if(elementId === '404') {
-        document.getElementById('header').classList.add('hidden');
-        document.getElementById('footer-container').classList.add('hidden');
-        document.getElementById('main-container').classList.add('hidden');
-        return;
-    }
+    
     contentIds.forEach(element => {
         const elementDom = document.getElementById(element);
         if (!elementDom) return;
         elementDom.classList.add('hidden');
     });
+    
+    if(elementId === '404') {
+        document.getElementById('header').classList.add('hidden');
+        document.getElementById('footer-container').classList.add('hidden');
+        document.getElementById('main-container').classList.add('hidden');
+    }
 
     if (parent) {
         const parentDom = document.getElementById(parent);
