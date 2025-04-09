@@ -1,0 +1,88 @@
+<head>
+    <link rel="stylesheet" href="./app/components/game-periodic-table/game-periodic-table.css">
+</head>
+
+<div class="container-game-periodic-table">
+    <div class="header-game-periodic-table">
+        <h2>QuimiLearn</h2>
+        <h3>Aprende los elementos químicos de una manera interactiva</h3>
+    </div>
+
+    <div class="body-game-periodic-table"`>
+        <button  id="start-game" class="start-game-button" type="button">Iniciar juego</button>
+        
+    </div>
+
+    <!-- Table --> 
+     <!-- todo add hidden -->
+    <div id="container-table" class="container-table hidden">
+        <div class="table-header">
+            <div class="table-title">
+                <div class="table-title-content">
+                    <h3>Adivina el elemento</h3>
+                    <div class="timer-container">
+                        <p>Tiempo:
+                            <div id="timer" class="timer">0</div>
+                        </p>
+                    </div>
+                </div>
+                <p class="table-subtitle">Identifica el elemento químico por su símbolo</p>
+            </div>
+            <div></div>
+        </div>
+
+        <div class="table-body">
+            <div class="table-body-content">
+                <div class="table-type-game">
+                    <h3 class="table-type-game-title">Opción Múltiple</h3>
+                </div>
+                <div class="table-question">
+                    <div id="table-question-symbol" class="table-question-symbol hidden"></div>
+                    <div class="table-question-options">
+                        <div id="table-question-options" class="table-question-options-container" role="radiogroup"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-footer">
+            <button id="check-btn" class="check-btn" type="button" disabled>Comprobar</button>
+
+        </div>
+    </div>
+</div>
+
+
+<dialog id="dialog-correct" class="correct-dialog">
+    <div class="modal">
+        <h2>¡Respuesta correcta!</h2>
+        <p>
+            Tu puntuanción es: <span id="score"></span>
+        </p>
+    </div>
+</dialog>
+
+<dialog id="dialog-wrong" class="wrong-dialog">
+    <div class="modal">
+        <h2>Respuesta incorrecta</h2>
+        <p>
+            La respuesta correcta es: 
+            <span id="correct-answer"></span>
+        </p>
+    </div>
+
+</dialog>
+
+<dialog open id="dialog-end" class="end-dialog">
+    <div class="modal">
+        <h2 class="end-dialog-title">Fin del juego</h2>
+        <p class="end-dialog-text">
+            Tu puntuanción es: <span id="score"></span>
+        </p>
+        <span class="end-dialog-text">¡Gracias por jugar!</span>
+        <div>
+            <a href="#/periodic-table/" class="btn-game secondary">Cerrar</a>
+        </div>
+    </div>
+
+</dialog>

@@ -74,7 +74,6 @@ export default function loadElementList() {
                 document.getElementById('filter-input').addEventListener('keyup', (event) => {
                     const filterValue = event.target.value.toLowerCase();
                     const elements = document.querySelectorAll('.element-container');
-                    console.log('elements', elements);
                     elements.forEach(element => {
                         const elementName = element.querySelector('.element-name').textContent.toLowerCase();
                         const elementSymbol = element.querySelector('.element-name-symbol').textContent.toLowerCase();
