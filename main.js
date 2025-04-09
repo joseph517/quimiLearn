@@ -2,6 +2,8 @@
 import loadElementList from './app/components/element-list/element-list.js'
 import header from './app/components/header/header.js'
 import experiments from './app/pages/experiments/experiments.js'
+import gamePeriodicTable from './app/components/game-periodic-table/game-periodic-table.js'
+
 
 async function loadComponent(url, selector) {
     return new Promise((resolve, ) => {
@@ -27,7 +29,7 @@ async function loadHtmlComponents() {
             await Promise.all([
                 loadComponent('./app/components/table/table.html', '#view-periodic-table'),
                 loadComponent('./app/components/element-list/element-list.html', '#view-elements-list'),
-                // loadComponent('./app/components/game-periodic-table/game-periodic-table.html', '#game-periodic-table')
+                loadComponent('./app/components/game-periodic-table/game-periodic-table.html', '#game-periodic-table')
             ]);
             hiddenLoader();
             resolve();
@@ -56,11 +58,11 @@ const routes = [{
         id: 'view-elements-list',
         parent: 'periodic-table'
     },
-    // {
-    //     path: '#/periodic-table/game-periodic-table',
-    //     id: 'game-periodic-table',
-    //     parent: 'periodic-table'
-    // },
+    {
+        path: '#/periodic-table/game-periodic-table',
+        id: 'game-periodic-table',
+        parent: 'periodic-table'
+    },
     {
         path: '#/about/',
         id: 'about'
@@ -81,7 +83,7 @@ const contentIds = [
     'periodic-table',
     'view-periodic-table',
     'view-elements-list',
-    // 'game-periodic-table',
+    'game-periodic-table',
     'initial-periodic-table',
     'about',
     'experiments',
@@ -113,22 +115,33 @@ window.onpopstate = () => {
     loadElementList();
     header();
     experiments();
+    gamePeriodicTable();
 
     navigateTo(window.location.hash || defaultRoute);
 })();
 
+function pageNotFound(elementId) {
+    if(elementId !== '404') {
+        document.getElementById('header').classList.remove('hidden');
+        document.getElementById('footer-container').classList.remove('hidden');
+        
+    }
+    
+    if(elementId === '404') {
+        document.getElementById('header').classList.add('hidden');
+        document.getElementById('footer-container').classList.add('hidden');
+        
+    }
+}
+
 function handlesContent(elementId, parent) {
+    pageNotFound(elementId)
     
     contentIds.forEach(element => {
         const elementDom = document.getElementById(element);
         if (!elementDom) return;
         elementDom.classList.add('hidden');
     });
-    
-    if(elementId === '404') {
-        document.getElementById('header').classList.add('hidden');
-        document.getElementById('footer-container').classList.add('hidden');
-    }
 
     if (parent) {
         const parentDom = document.getElementById(parent);
@@ -150,4 +163,5 @@ function hiddenLoader() {
     document.getElementById('header-container').classList.remove('hidden');
     document.getElementById('main-container').classList.remove('hidden');
     document.getElementById('footer-container').classList.remove('hidden');
+   
 }
