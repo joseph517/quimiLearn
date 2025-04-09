@@ -1,63 +1,72 @@
 :root {
-    --primary-blue: #4169E1;
-    --primary-purple: #9370DB;
-    --gray-50: #F9FAFB;
-    --gray-100: #F3F4F6;
-    --gray-700: #374151;
-    --gray-800: #1F2937;
-    --gray-900: #111827;
-    --gray-200: #e3d6e6;
+  --primary-blue: #4169E1;
+  --primary-purple: #9370DB;
+  --gray-50: #F9FAFB;
+  --gray-100: #F3F4F6;
+  --gray-700: #374151;
+  --gray-800: #1F2937;
+  --gray-900: #111827;
+  --gray-200: #e3d6e6;
+  
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .mb-4 {
-    margin-bottom: 4px;
+  margin-bottom: 4px;
 }
 
 .mb-8 {
-    margin-bottom: 8px;
+  margin-bottom: 8px;
 }
 
 .mb-16 {
-    margin-bottom: 16px;
+  margin-bottom: 16px;
 }
 .pd-24 {
-    padding: 24px;
+  padding: 24px;
 }
 .hg-16 {
-    height: 16px;
+  height: 16px;
 }
 .wd-16 {
-    width: 16px;
+  width: 16px;
 }
 
 .hidden {
-    display: none !important;
+  display: none !important;
 }
 
-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    line-height: 1.5;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+.body {
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: #eff6ff;
 }
 .main {
   flex: 1;
   background: #EFF6FF;
 }
-.home {
-    height: 100%;
-    background-color: #EFF6FF;
-}
 
 footer {
   padding: 20px;
+}
+
+.home {
+  height: 100%;
+  background-color: #EFF6FF;
 }
 
 .loader-container {
@@ -113,15 +122,30 @@ footer {
 
 /* Media queries */
 @media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2rem;
-    }
+  .hero h1 {
+    font-size: 2rem;
+  }
 
-    .features-grid {
-        grid-template-columns: 1fr;
-    }
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
 
-    .footer-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Animations */
+.rotate {
+  animation: rotateAnimation 2s linear infinite;
+  display: inline-block;
+}
+
+@keyframes rotateAnimation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
