@@ -46,27 +46,28 @@ html, body {
   display: none !important;
 }
 
-.body {
-  font-family: "Poppins", sans-serif;
+.container {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  background-color: #eff6ff;
+  justify-content: center;
 }
+
 .main {
+  display: flex;
+  flex-direction: column;
   flex: 1;
   background: #EFF6FF;
 }
 
-footer {
-  padding: 20px;
+#periodic-table {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
-.home {
-  height: 100%;
-  background-color: #EFF6FF;
+footer {
+  padding: 20px;
 }
 
 .loader-container {

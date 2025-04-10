@@ -75,7 +75,7 @@ const routes = [{
         path: '#/404/',
         id: '404'
     }
-    
+
 ]
 
 const contentIds = [
@@ -116,27 +116,24 @@ window.onpopstate = () => {
     header();
     experiments();
     gamePeriodicTable();
-
     navigateTo(window.location.hash || defaultRoute);
 })();
 
 function pageNotFound(elementId) {
-    if(elementId !== '404') {
+    if (elementId !== '404') {
         document.getElementById('header').classList.remove('hidden');
         document.getElementById('footer-container').classList.remove('hidden');
-        
     }
-    
-    if(elementId === '404') {
+
+    if (elementId === '404') {
         document.getElementById('header').classList.add('hidden');
         document.getElementById('footer-container').classList.add('hidden');
-        
     }
 }
 
 function handlesContent(elementId, parent) {
     pageNotFound(elementId)
-    
+
     contentIds.forEach(element => {
         const elementDom = document.getElementById(element);
         if (!elementDom) return;
@@ -149,7 +146,7 @@ function handlesContent(elementId, parent) {
         parentDom.classList.remove('hidden');
     }
 
-    if(elementId === 'periodic-table') {
+    if (elementId === 'periodic-table') {
         document.getElementById('initial-periodic-table').classList.remove('hidden');
     }
 
@@ -163,5 +160,5 @@ function hiddenLoader() {
     document.getElementById('header-container').classList.remove('hidden');
     document.getElementById('main-container').classList.remove('hidden');
     document.getElementById('footer-container').classList.remove('hidden');
-   
+    document.getElementById('container').classList.remove('hidden');
 }
