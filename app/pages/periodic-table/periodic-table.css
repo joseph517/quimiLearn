@@ -1,6 +1,8 @@
 .periodic-table{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
     background-color: #EFF6FF;
-    height: 100%;
 }
 .nav-periodic-table{
     display: flex;
@@ -72,6 +74,10 @@
     animation-name: animation-nav-periodic-table;
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
+}
+
+.game-periodic-table{
+    flex: 1;
 }
 
 /* keyframes */

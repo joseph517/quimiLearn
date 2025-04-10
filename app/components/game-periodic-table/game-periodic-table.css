@@ -3,14 +3,18 @@
     color: white;
 }
 
-.container-game-periodic-table {
+#game-periodic-table {
     display: flex;
+    flex: 1;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-image: radial-gradient(circle, #ecfdf5, #e9fcfa, #e9fafe, #ebf8ff, #eff6ff);
+}
+
+.container-game-periodic-table {
     text-align: center;
     padding: 16px;
-    background-image: radial-gradient(circle, #ecfdf5, #e9fcfa, #e9fafe, #ebf8ff, #eff6ff);
 }
 
 .header-game-periodic-table h2 {
@@ -50,8 +54,7 @@
     transition: all 0.3s ease-in-out;
     border-radius: 50%;
     background-color: #047857;
-    border: none;
-    
+    border: none;    
 }
 
 .start-game-button:hover {
@@ -188,7 +191,6 @@
     -webkit-box-shadow: 0px 0px 30px -6px rgba(239,68,68,1);
     -moz-box-shadow: 0px 0px 30px -6px rgba(239,68,68,1);
     box-shadow: 0px 0px 30px -6px rgba(239,68,68,1);
-    
 }
 
 .check-btn{
@@ -245,3 +247,30 @@
     margin-bottom: 15px;
 }
 
+.end-dialog{
+    min-width: 250px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ecfdf5;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    font-size: 16px;
+    color: #047857;
+}
+
+.end-dialog-title{
+    text-align: center;
+}
+
+.end-dialog-text{
+    margin: 10px;
+}
+
+.end-dialog-buttons{
+    margin-top: 15px;
+    text-align: center;
+}

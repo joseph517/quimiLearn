@@ -10,11 +10,9 @@
 
     <div class="body-game-periodic-table"`>
         <button  id="start-game" class="start-game-button" type="button">Iniciar juego</button>
-        
     </div>
 
     <!-- Table --> 
-     <!-- todo add hidden -->
     <div id="container-table" class="container-table hidden">
         <div class="table-header">
             <div class="table-title">
@@ -22,7 +20,7 @@
                     <h3>Adivina el elemento</h3>
                     <div class="timer-container">
                         <p>Tiempo:
-                            <div id="timer" class="timer">0</div>
+                            <div id="timer" class="timer hidden"></div>
                         </p>
                     </div>
                 </div>
@@ -47,11 +45,9 @@
 
         <div class="table-footer">
             <button id="check-btn" class="check-btn" type="button" disabled>Comprobar</button>
-
         </div>
     </div>
 </div>
-
 
 <dialog id="dialog-correct" class="correct-dialog">
     <div class="modal">
@@ -70,19 +66,17 @@
             <span id="correct-answer"></span>
         </p>
     </div>
-
 </dialog>
 
-<dialog open id="dialog-end" class="end-dialog">
+<dialog id="dialog-end" class="end-dialog">
     <div class="modal">
         <h2 class="end-dialog-title">Fin del juego</h2>
         <p class="end-dialog-text">
-            Tu puntuanción es: <span id="score"></span>
+            Obtuviste un puntaje de: <span id="score-end"></span> puntos, puedes volver a jugar y seguir aprendiendo.
         </p>
         <span class="end-dialog-text">¡Gracias por jugar!</span>
-        <div>
-            <a href="#/periodic-table/" class="btn-game secondary">Cerrar</a>
+        <div class="end-dialog-buttons">
+            <a id="close-game-btn" class="btn-game secondary">Cerrar</a>
         </div>
     </div>
-
 </dialog>

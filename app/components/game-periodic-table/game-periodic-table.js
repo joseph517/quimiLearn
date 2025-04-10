@@ -8,11 +8,13 @@ export default async function gamePeriodicTable() {
     const timer = document.getElementById('timer');
     const showCorrectDialog = document.getElementById('dialog-correct');
     const showWrongDialog = document.getElementById('dialog-wrong');
+    const showEndGameDialogHTML = document.getElementById('dialog-end');
+    const closeGameBtnHTML = document.getElementById('close-game-btn');
     let questionTimeout;
     let selectedAnswerHTML = null;
     let score = 0;
     let currentQuestion = 0;
-    let maxQuestions = 10;
+    let maxQuestions = 5;
     let time = 10000;
     // let time = 1000000;
     let counterTime = time;
@@ -166,10 +168,18 @@ export default async function gamePeriodicTable() {
         startGame();
     }
 
+    function handleEndGame() {
+        console.log('handleEndGame');
+        
+        closeEndGameDialog();
+        
+    }
+
     function subcribeEvents() {
         checkBtn.addEventListener('click', handleSubmit);
         optionsContainerHTML.addEventListener('click', handleResponse);
         startGameButton.addEventListener('click', handleStartGame);
+        closeGameBtnHTML.addEventListener('click', handleEndGame);
     }
 
     function render(){
@@ -219,16 +229,28 @@ export default async function gamePeriodicTable() {
     }
     
     function startGame() {
+        timer.classList.remove('hidden');
         createNextQuestion();
     }
 
     function endGame() {
-        alert(`¡Juego terminado! Tu puntaje final es: ${score}`);
-            resetGame();
-            startGameButton.classList.remove('hidden');
-            document.getElementById('container-table').classList.add('hidden');
-            document.getElementById('timer').classList.add('hidden');
+        const scoreElementHTML = document.getElementById('score-end');
+        scoreElementHTML.textContent = score;
+        showEndGameDialog();
+        resetGame();
+        // alert(`¡Juego terminado! Tu puntaje final es: ${score}`);
+        startGameButton.classList.remove('hidden');
+        document.getElementById('container-table').classList.add('hidden');
+        document.getElementById('timer').classList.add('hidden');
+        timer.textContent = 0;
+    }
 
+    function showEndGameDialog() {
+        showEndGameDialogHTML.showModal();
+    }
+
+    function closeEndGameDialog() {
+        showEndGameDialogHTML.close();
     }
 
     function playCorrectSound() {
