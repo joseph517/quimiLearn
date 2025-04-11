@@ -79,6 +79,7 @@ h1 {
 }
 
 .secondary {
+    cursor: pointer;
     background-color: #007bff;
     border: 2px solid #007bff;
     background-image: linear-gradient(to right, #2563eb, #059669);
