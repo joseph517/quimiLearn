@@ -16,7 +16,6 @@ export default async function gamePeriodicTable() {
     let currentQuestion = 0;
     let maxQuestions = 5;
     let time = 10000;
-    // let time = 1000000;
     let counterTime = time;
     let intervalId  = null;
     const correctSound = new Audio();
@@ -65,19 +64,15 @@ export default async function gamePeriodicTable() {
     function handleTimer() {
         if (questionTimeout) clearTimeout(questionTimeout);
         if (intervalId) clearInterval(intervalId); 
-    
         questionTimeout = setTimeout(() => {
             playWrongSound();
             validateGame();
         }, time);
-    
         counterTime = time;
         timer.textContent = counterTime / 1000;
-        
         intervalId = setInterval(() => {
             counterTime -= 1000;
             timer.textContent = counterTime / 1000;
-            
             if (counterTime <= 0) {
                 clearInterval(intervalId);
             }
@@ -86,12 +81,10 @@ export default async function gamePeriodicTable() {
 
     function handleResponse(e) {
         const optionButton = e.target.closest('[role="radio"]');
-
         if (optionButton) {
             document.querySelectorAll('[role="radio"]').forEach(btn => {
                 btn.setAttribute('aria-checked', 'false');
             });
-
             optionButton.setAttribute('aria-checked', 'true');
             const optionParent = optionButton.parentElement
             selectedAnswerHTML = optionParent;
@@ -138,10 +131,8 @@ export default async function gamePeriodicTable() {
     function handleSubmit() {
         let selectedAnswer = selectedAnswerHTML.textContent.replace(/\s/g,'').trim();
         const selectedId = selectedAnswerHTML.id;
-
         if (selectedAnswer) {
             const checkAnswer = correctAnswer[2];
-
             if (selectedAnswer === checkAnswer) {
                 playCorrectSound();
                 handledInputCorrectAnswer(selectedId);
@@ -170,9 +161,7 @@ export default async function gamePeriodicTable() {
 
     function handleEndGame() {
         console.log('handleEndGame');
-        
         closeEndGameDialog();
-        
     }
 
     function subcribeEvents() {
@@ -188,7 +177,6 @@ export default async function gamePeriodicTable() {
         tableQuestionSymbol.classList.remove('hidden');
         tableQuestionSymbol.textContent = symbol;
         optionsContainerHTML.innerHTML = '';
-
         options.forEach((option, index) => {
             const optionElement = document.createElement('div');
             optionElement.id = `option-${index + 1}`;
@@ -224,6 +212,7 @@ export default async function gamePeriodicTable() {
             createNextQuestion();
         }
         else {
+            showEndGameDialog();
             endGame();
         }
     }
@@ -231,14 +220,13 @@ export default async function gamePeriodicTable() {
     function startGame() {
         timer.classList.remove('hidden');
         createNextQuestion();
+        changeRouteEvent();
     }
 
     function endGame() {
         const scoreElementHTML = document.getElementById('score-end');
         scoreElementHTML.textContent = score;
-        showEndGameDialog();
         resetGame();
-        // alert(`¡Juego terminado! Tu puntaje final es: ${score}`);
         startGameButton.classList.remove('hidden');
         document.getElementById('container-table').classList.add('hidden');
         document.getElementById('timer').classList.add('hidden');
@@ -269,6 +257,12 @@ export default async function gamePeriodicTable() {
         } catch (error) {
             console.log("Error al reproducir sonido:", error);
         }
+    }
+
+    function changeRouteEvent() {
+        window.addEventListener('hashchange', () => {
+            endGame();
+        });
     }
     
     
