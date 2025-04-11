@@ -40,7 +40,6 @@
 }
 
 .initial-periodic-table-content{
-    max-height: 500px;
     max-width: 1152px;
     margin-bottom: 48px;
     padding: 24px;
@@ -117,6 +116,10 @@
 }
 
 @media screen and (min-width: 900px) {
+    .initial-periodic-table-content{
+        max-height: 500px;
+        overflow-y: scroll;
+    }
     .container-flask{
         display: block;
         position: relative;
