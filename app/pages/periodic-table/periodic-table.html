@@ -2,29 +2,30 @@
     <link rel="stylesheet" href="./app/pages/periodic-table/periodic-table.css">
 </head>
 
-<div class="periodic-table">
-    <div class="nav-periodic-table">
-        <h2 class="periodic-table-title-nav">Tabla Periódica</h2>
-        <nav>
-            <a class="nav-link" href="#/periodic-table/">
-                <img class="nav-icon" src="/app/assets/periodic-table/pagina-de-inicio.png" alt="icono">
-                Inicio
-            </a>
-            <a class="nav-link" href="#/periodic-table/view-periodic-table">
-                <img class="nav-icon" src="/app/assets/periodic-table/borrador.png" alt="icono">
-                Tabla Periódica
-            </a>
-            <a class="nav-link" href="#/periodic-table/view-elements-list">
-                <img class="nav-icon" src="/app/assets/periodic-table/lista.png" alt="icono">
-                Lista de Elementos
-            </a>
-            <a class="nav-link" href="#/periodic-table/game-periodic-table">
-                <img class="nav-icon" src="/app/assets/home/tabla-periodica.png" alt="icono">
-                Juego
-            </a>
-        </nav>
-    </div>
+<div class="nav-periodic-table">
+    <h2 class="periodic-table-title-nav">Tabla Periódica</h2>
+    <nav>
+        <a class="nav-link" href="#/periodic-table/">
+            <img class="nav-icon" src="/app/assets/periodic-table/pagina-de-inicio.png" alt="icono">
+            Inicio
+        </a>
+        <a class="nav-link" href="#/periodic-table/view-periodic-table">
+            <img class="nav-icon" src="/app/assets/periodic-table/borrador.png" alt="icono">
+            Tabla Periódica
+        </a>
+        <a class="nav-link" href="#/periodic-table/view-elements-list">
+            <img class="nav-icon" src="/app/assets/periodic-table/lista.png" alt="icono">
+            Lista de Elementos
+        </a>
+        <a class="nav-link" href="#/periodic-table/game-periodic-table">
+            <img class="nav-icon" src="/app/assets/home/tabla-periodica.png" alt="icono">
+            Juego
+        </a>
+    </nav>
+</div>
 
+<!-- Contenedor dinámico para sub-vistas -->
+<div class="periodic-table">
     <div id="initial-periodic-table" class="initial-periodic-table">
         <div class="initial-periodic-table-content">
             <h2 class="initial-periodic-table-title">¿Por qué ordenar los elementos en una tabla?</h2>
@@ -123,8 +124,6 @@
         </div>
     </div>
 </div>
-
-<!-- Contenedor dinámico para sub-vistas -->
 <div id="view-periodic-table" class="view-periodic-table hidden"></div>
 <div id="view-elements-list" class="hidden"></div>
 <div id="game-periodic-table" class="hidden"></div>
