@@ -38,7 +38,7 @@ nav a {
 
 /* Estilos del botón hamburguesa */
 .hamburger-btn {
-  display: none; /* Oculto en desktop */
+  display: none;
   background: none;
   border: none;
   cursor: pointer;
@@ -107,7 +107,6 @@ nav a {
   transition: transform 0.3s;
 }
 
-/* Cambiamos el selector para activar con hover en el li padre */
 li:hover + .line-header::after {
   transform: scaleX(1);
 }
