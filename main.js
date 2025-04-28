@@ -123,11 +123,13 @@ function pageNotFound(elementId) {
     if (elementId !== '404') {
         document.getElementById('header').classList.remove('hidden');
         document.getElementById('footer-container').classList.remove('hidden');
+        document.getElementById('container').classList.remove('hidden');
     }
 
     if (elementId === '404') {
         document.getElementById('header').classList.add('hidden');
         document.getElementById('footer-container').classList.add('hidden');
+        document.getElementById('container').classList.add('hidden');
     }
 }
 
